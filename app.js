@@ -11,6 +11,7 @@ const rootDir = require('./util/path')
 
 
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname, "public")))
 
 app.use(landing)
 app.use(adminRoutes)
@@ -18,7 +19,7 @@ app.use(games)
 
 //Will execute if req or callbacks are done
 app.use('/', (req, res) => {
-    res.sendFile(path.join(rootDir, "views", '404.html')) 
+    res.status(404).sendFile(path.join(rootDir, "views", '404.html')) 
 })
 
 app.listen(3000)
