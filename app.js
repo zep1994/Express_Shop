@@ -4,10 +4,11 @@ const app = express()
 
 const landing = require('./routes/landing') 
 const games = require('./routes/games')
-const adminRoute = require('./routes/admin')
+const adminRoutes = require('./routes/admin')
 
 
 app.use(landing)
+app.use(adminRoutes)
 app.use(games)
 
 //Will execute if req or callbacks are done
