@@ -1,4 +1,5 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 
 const app = express()
 
@@ -6,6 +7,7 @@ const landing = require('./routes/landing')
 const games = require('./routes/games')
 const adminRoutes = require('./routes/admin')
 
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(landing)
 app.use(adminRoutes)
